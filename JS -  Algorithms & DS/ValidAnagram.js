@@ -29,7 +29,7 @@ function validAnagram(strA, strB) {
   console.log(mapA);
   console.log(mapB);
   // compare if key:value b >>> on a ,
-  for (key in mapA) {
+  for (let key in mapA) {
     if (mapA[key] !== mapB[key]) {
       // if not exists or not equals return false
       return false;
