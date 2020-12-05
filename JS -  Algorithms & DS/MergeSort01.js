@@ -31,8 +31,4 @@ function merge(arr1, arr2) {
   }
   return result;
 }
-//arr1          arr2
-//         i            j
-//[1, 10, 50], [2, 14, 99, 100]
-// [1,]
 console.log(merge([1, 10, 50], [2, 14, 99, 100]));
