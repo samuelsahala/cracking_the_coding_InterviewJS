@@ -110,6 +110,33 @@ class SinglyLinkedList {
     this.length--;
     return removed;
   }
+
+  reverse() {
+    let node = linkedlist;
+    let previous = null;
+    while (node) {
+      // save next or you lose it!!!
+      let save = node.next;
+      // reverse pointer
+      node.next = previous;
+      // increment previous to current node
+      previous = node;
+      // increment node to next node or null at end of list
+      node = save;
+    }
+    return previous;
+  }
+
+  //test for the reverse
+  print() {
+    let arr = [];
+    let current = this.head;
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    console.log(arr);
+  }
 }
 
 let list = new SinglyLinkedList();
