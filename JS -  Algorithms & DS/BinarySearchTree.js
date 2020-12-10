@@ -66,6 +66,58 @@ class Node {
     if (!found) return false;
     return current;
   }
+  // Breadth first search
+  // ------------->
+  BFS() {
+    let data = [],
+      queue = [];
+    node = this.root;
+    queue.push(this.root);
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node);
+      if (node.left) queue.push(node.left);
+      if (node.right) queue.push(node.right);
+    }
+    return data;
+  }
+
+  //Depth first - PreOrder, PostOrder, InOrder
+  //  |
+  // |
+  // V
+  DFSPreOrder() {
+    let data = [];
+    function traverse(node) {
+      data.push(node);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
+
+  DFSPostOrder() {
+    let data = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+      data.push(node);
+    }
+    traverse(this.root);
+    return data;
+  }
+
+  DFSInOrder() {
+    let data = [];
+    function traverse(node) {
+      if (node.left) traverse(node.left);
+      data.push(node);
+      if (node.right) traverse(node.right);
+    }
+    traverse(this.root);
+    return data;
+  }
 }
 
 class BinarySearchTree {
